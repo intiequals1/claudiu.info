@@ -3,32 +3,95 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BTP ABAP Trial</title>
+<title>BTP ABAP Trial einrichten – claudiu.info</title>
 <style>
-body{margin:0;font:16px/1.6 system-ui,Arial,sans-serif;background:#101827;color:#eef6ff}main{max-width:900px;margin:0 auto;padding:48px 24px}.card{border:1px solid rgba(255,255,255,.18);background:#17253a;border-radius:24px;padding:32px;margin:20px 0}a{color:#64f0c8}p,li{color:#a9bad0}h1{font-size:3rem;line-height:1.1}code{background:#0b1220;padding:2px 6px;border-radius:6px}
+:root{--text:#eef6ff;--muted:#a9bad0;--accent:#64f0c8;--accent2:#91a7ff;--card:rgba(255,255,255,.08);--deep:rgba(8,16,29,.72);--warn:#ffd166;--ok:#64f0c8}
+*{box-sizing:border-box}body{margin:0;font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(circle at 20% 10%,#1d4658,transparent 30%),linear-gradient(135deg,#0b1220,#16284a 60%,#10251f);color:var(--text);min-height:100vh}main{max-width:1120px;margin:0 auto;padding:64px 24px}a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}.back{display:inline-flex;margin-bottom:24px;color:var(--accent)}.hero,.panel{border:1px solid rgba(255,255,255,.18);background:var(--card);backdrop-filter:blur(14px);border-radius:28px;padding:38px;margin-bottom:24px;box-shadow:0 24px 70px rgba(0,0,0,.35)}.eyebrow{text-transform:uppercase;letter-spacing:.25em;color:var(--accent);font-size:.82rem;font-weight:700}h1{font-size:clamp(2.4rem,6vw,4.8rem);line-height:1.03;margin:.35em 0 .25em}h2{margin-top:0}h3{margin-bottom:.35rem}p,li{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}.box{border:1px solid rgba(255,255,255,.14);background:var(--deep);border-radius:20px;padding:20px}.tag{color:var(--accent2);font-size:.82rem;text-transform:uppercase;letter-spacing:.18em;font-weight:700}.status{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}.pill{border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:7px 12px;background:rgba(255,255,255,.06);color:var(--muted)}.ok{color:var(--ok)}.warn{color:var(--warn)}pre{background:#0b1220;border:1px solid rgba(255,255,255,.14);padding:18px;border-radius:16px;overflow:auto;color:#eef6ff}code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}.steps{counter-reset:step;display:grid;gap:16px}.step{counter-increment:step;border-left:3px solid var(--accent);padding:6px 0 6px 18px;background:linear-gradient(90deg,rgba(100,240,200,.07),transparent);border-radius:12px}.step h3:before{content:counter(step) '. ';color:var(--accent)}.shot{border:1px dashed rgba(255,255,255,.25);border-radius:18px;padding:16px;background:rgba(255,255,255,.04);margin:12px 0}.shot strong{color:#eef6ff}.shot span{display:block;color:var(--muted);font-size:.94rem;margin-top:4px}.footer{margin-top:32px;color:var(--muted);font-size:.9rem;display:flex;gap:14px;flex-wrap:wrap}.note{border-left:4px solid var(--warn);padding:12px 16px;background:rgba(255,209,102,.08);border-radius:14px}.small{font-size:.92rem;color:var(--muted)}
 </style>
 </head>
 <body>
 <main>
-<a href="../">Zurueck zur Uebersicht</a>
-<section class="card">
+<a class="back" href="../">Zurück zur Übersicht</a>
+<section class="hero">
+<div class="eyebrow">SAP BTP · ABAP Cloud Trial</div>
 <h1>BTP ABAP Trial einrichten</h1>
-<p>Lernpfad von SAP BTP Trial ueber Destination und Eclipse ADT bis zur ersten ABAP-Klasse.</p>
+<p>Dokumentation des Einrichtungswegs von SAP BTP Trial über Business Application Studio, Destination-Konfiguration und Eclipse ADT bis zur ersten lauffähigen ABAP-Klasse.</p>
+<div class="status"><span class="pill ok">Status: fachlich abgeschlossen</span><span class="pill">Stand: 21.05.2026 ~23 Uhr</span><span class="pill warn">Hinweis: Screenshots sind als Dokumentationspunkte vorbereitet</span></div>
 </section>
-<section class="card">
-<h2>Aktueller Stand</h2>
+<section class="panel">
+<h2>Ziel der Dokumentation</h2>
+<p>Diese Seite hält fest, welche Schritte beim Aufbau einer ABAP Cloud Trial Umgebung relevant waren, welche Fehlersituationen aufgetreten sind und welche Entscheidung am Ende praktikabel war. Der Fokus liegt auf einem reproduzierbaren Lernpfad: Trial-System finden, Verbindung herstellen, Projekt öffnen, Paketstruktur verstehen und ein erstes Minimalbeispiel ausführen.</p>
+</section>
+<section class="panel">
+<h2>Kurzfazit</h2>
+<div class="grid">
+<div class="box"><div class="tag">Ergebnis</div><h3>Eclipse ADT war der funktionierende Weg</h3><p>Die Arbeit mit Eclipse ADT führte zur erfolgreichen Verbindung und zur Ausführung der ABAP-Klasse.</p></div>
+<div class="box"><div class="tag">BAS</div><h3>Business Application Studio blieb eingeschränkt</h3><p>Im BAS war die Systemauswahl trotz Destination-Konfiguration nicht zuverlässig verfügbar.</p></div>
+<div class="box"><div class="tag">Paketstruktur</div><h3>ZLOCAL und Unterpakete beachten</h3><p>Structure Packages können keine Development Objects enthalten. Für Objekte braucht es ein geeignetes Unterpaket.</p></div>
+</div>
+</section>
+<section class="panel">
+<h2>Chronologischer Ablauf</h2>
+<div class="steps">
+<div class="step"><h3>SAP BTP Trial und ABAP Trial prüfen</h3><p>Im SAP BTP Cockpit wurde geprüft, ob die ABAP Trial Instanz beziehungsweise Subscription vorhanden ist. Relevant waren Subaccount, Instances and Subscriptions sowie die Service-Instanz für ABAP.</p><div class="shot"><strong>Screenshot-Bezug:</strong><span>Subaccount Trial Overview, Instances and Subscriptions, ABAP Trial.</span></div></div>
+<div class="step"><h3>Business Application Studio öffnen</h3><p>Im Business Application Studio wurde ein Dev Space geöffnet und die ABAP Cloud beziehungsweise Full-Stack-Projektvorlage geprüft.</p><div class="shot"><strong>Screenshot-Bezug:</strong><span>BAS Dev Space geöffnet, Full Stack ABAP Cloud Project Template, Workspace Setting Multi Root.</span></div></div>
+<div class="step"><h3>Systemauswahl im BAS analysieren</h3><p>Beim Anlegen eines ABAP Cloud Projects blieb die Systemauswahl leer beziehungsweise es wurde kein passendes System gefunden. Damit war klar, dass die Destination-Konfiguration überprüft werden musste.</p><div class="shot"><strong>Screenshot-Bezug:</strong><span>ABAP Cloud Project System Selection Empty, No Matching System.</span></div></div>
+<div class="step"><h3>Destination anlegen und prüfen</h3><p>Im BTP Cockpit wurde eine Destination aus der Service Instance beziehungsweise aus einem bestehenden Service Key erstellt. Danach wurde die URL korrigiert und die Verbindung geprüft.</p><div class="shot"><strong>Screenshot-Bezug:</strong><span>Destinations Empty, Create Destination, Existing Service Key, Dummy URL erkannt, ABAP Trial konfiguriert, Check Connection Success.</span></div></div>
+<div class="step"><h3>Destination Properties ergänzen</h3><p>Für die BAS-Erkennung wurden Properties geprüft. Der wichtige Punkt war, dass bestimmte Properties wie <code>sap-platform</code> nicht immer verfügbar waren und ersatzweise WebIDE/HTML5-bezogene Einstellungen geprüft wurden.</p><div class="shot"><strong>Screenshot-Bezug:</strong><span>Destination Properties sap-platform not available, webide/html5 set.</span></div></div>
+<div class="step"><h3>Entscheidung: Wechsel auf Eclipse ADT</h3><p>Da BAS das System weiterhin nicht zuverlässig anbot, wurde Eclipse ADT als stabilerer Weg verwendet. Die ADT-Installation wurde geprüft und ein neues ABAP Cloud Project angelegt.</p><div class="shot"><strong>Screenshot-Bezug:</strong><span>Eclipse ADT Installation Review, New ABAP Cloud Project Wizard.</span></div></div>
+<div class="step"><h3>Login und Verbindung herstellen</h3><p>Der Browser-Login aus ADT war erfolgreich. Danach konnten die Connection Details des ABAP Cloud Projects geprüft werden.</p><div class="shot"><strong>Screenshot-Bezug:</strong><span>ADT Browser Login Success, ABAP Cloud Project Connection Details.</span></div></div>
+<div class="step"><h3>Software Component und Paketstruktur verstehen</h3><p>Beim Anlegen von Paketen wurde sichtbar, dass eine Software Component erforderlich ist und nicht jeder Paketname beziehungsweise Präfix zulässig ist. ZLOCAL war vorhanden, aber als Strukturpaket nicht direkt für Development Objects geeignet.</p><div class="shot"><strong>Screenshot-Bezug:</strong><span>Software Component Required, Software Component Selection, ZLOCAL invalid, Prefix Authorization Error, Repository Tree ZLOCAL Available, Structure Package Cannot Contain Objects.</span></div></div>
+<div class="step"><h3>Unterpaket wählen und ABAP-Klasse ausführen</h3><p>Nach Auswahl eines geeigneten Unterpakets konnte eine erste ABAP-Klasse erstellt und über die ABAP Console ausgeführt werden.</p><div class="shot"><strong>Screenshot-Bezug:</strong><span>Package Selection ZLOCAL Subpackage, ABAP Console Hello Success.</span></div></div>
+</div>
+</section>
+<section class="panel">
+<h2>Minimalbeispiel</h2>
+<p>Das Minimalbeispiel dient dazu, die Verbindung, die Projektstruktur und die Ausführbarkeit in ADT zu prüfen. Es ist kein fachliches Programm, sondern ein technischer Funktionstest.</p>
+<pre><code>CLASS zcl_claudiu_hello DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC.
+
+  PUBLIC SECTION.
+    INTERFACES if_oo_adt_classrun.
+ENDCLASS.
+
+CLASS zcl_claudiu_hello IMPLEMENTATION.
+  METHOD if_oo_adt_classrun~main.
+    out-&gt;write( 'Hello Claudiu - ABAP Cloud works.' ).
+  ENDMETHOD.
+ENDCLASS.</code></pre>
+<div class="grid">
+<div class="box"><h3>Warum <code>if_oo_adt_classrun</code>?</h3><p>Das Interface macht die Klasse in Eclipse ADT direkt ausführbar. Die Methode <code>main</code> ist der Einstiegspunkt.</p></div>
+<div class="box"><h3>Warum <code>out-&gt;write</code>?</h3><p>Damit wird eine einfache Ausgabe in der ABAP Console erzeugt. So lässt sich sofort erkennen, ob Projekt, Login und Laufzeit funktionieren.</p></div>
+</div>
+</section>
+<section class="panel">
+<h2>Fehlerbilder und Learnings</h2>
 <ul>
-<li>SAP BTP Trial Account erstellt.</li>
-<li>ABAP Environment Instanz <code>default_abap_trial</code> erstellt.</li>
-<li>Destination konfiguriert und Verbindung geprueft.</li>
-<li>Eclipse ADT verbunden.</li>
-<li>Erste ABAP-Klasse erfolgreich ausgefuehrt.</li>
+<li><strong>Leere Systemauswahl in BAS:</strong> Eine vorhandene Destination bedeutet nicht automatisch, dass BAS sie als ABAP Cloud System anbietet.</li>
+<li><strong>Dummy URL:</strong> Bei aus Service Keys erzeugten Destinations muss geprüft werden, ob eine echte ABAP Trial URL eingetragen ist.</li>
+<li><strong>Properties:</strong> Einzelne Properties können je nach Trial-Setup fehlen oder anders benannt sein.</li>
+<li><strong>Paketfehler:</strong> Nicht jedes Paket kann Objekte enthalten. Structure Packages dienen der Gliederung.</li>
+<li><strong>Präfix-/Berechtigungsfehler:</strong> In ABAP Cloud Trial sind Namensräume und erlaubte Präfixe begrenzt.</li>
 </ul>
 </section>
-<section class="card">
-<h2>Naechster Schritt</h2>
-<p>Hier koennen die ausfuehrliche Dokumentation und Screenshots wieder eingebunden werden.</p>
+<section class="panel">
+<h2>Offene Punkte</h2>
+<div class="note"><p><strong>Screenshots:</strong> Die Inhalte und Screenshot-Positionen sind auf dieser Seite fachlich eingearbeitet. Die eigentlichen Bilddateien aus der ZIP-Dokumentation müssen noch als Assets in das Repository übernommen werden, damit sie direkt auf der GitHub-Pages-Seite angezeigt werden können.</p></div>
+<ul>
+<li>Screenshots aus der ZIP-Datei unter <code>btp-abap-trial/assets/screenshots/</code> ablegen.</li>
+<li>Die Platzhalterblöcke dieser Seite danach durch echte <code>&lt;img&gt;</code>-Elemente ersetzen.</li>
+<li>Optional: Screenshot-Galerie am Seitenende ergänzen.</li>
+</ul>
 </section>
+<section class="panel">
+<h2>Status</h2>
+<p><strong>Status:</strong> Inhaltlich zu Ende implementiert, inklusive Ablauf, Fehlerbildern, Minimalbeispiel und Screenshot-Zuordnung.</p>
+<p><strong>Dokumentationsstand:</strong> 21.05.2026 ~23 Uhr.</p>
+<p class="small">Technischer Hinweis: Die direkte Einbettung der hochgeladenen Screenshot-Dateien in GitHub Pages ist als nächster Asset-Schritt vorgesehen.</p>
+</section>
+<div class="footer"><a href="../">Zurück zur Übersicht</a> · <a href="../abap-code-lernen/">ABAP Code lernen</a> · <a href="../impressum/">Impressum</a> · <a href="../dokumentation/">Dokumentation der Seitenerstellung</a></div>
 </main>
 </body>
 </html>
