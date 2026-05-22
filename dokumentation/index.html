@@ -1,1 +1,106 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Dokumentation der Seitenerstellung</title><style>:root{--text:#eef6ff;--muted:#a9bad0;--accent:#64f0c8;--accent2:#91a7ff}*{box-sizing:border-box}body{margin:0;font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(circle at 20% 10%,#1d4658,transparent 30%),linear-gradient(135deg,#0b1220,#16284a 60%,#10251f);color:var(--text);min-height:100vh}main{max-width:980px;margin:0 auto;padding:64px 24px}.back{display:inline-flex;margin-bottom:24px;color:var(--accent)}.panel{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);backdrop-filter:blur(14px);border-radius:28px;padding:36px;margin-bottom:24px;box-shadow:0 24px 70px rgba(0,0,0,.35)}.eyebrow{text-transform:uppercase;letter-spacing:.25em;color:var(--accent);font-size:.82rem;font-weight:700}h1{font-size:clamp(2.2rem,5vw,4.5rem);line-height:1.05;margin:.4em 0 .3em}h2{margin-top:0}p,li{color:var(--muted)}a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}code{background:rgba(8,16,29,.72);border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:2px 6px;color:var(--text)}.timeline{display:grid;gap:14px}.step{border-left:3px solid var(--accent);padding-left:18px}.footer{margin-top:32px;color:var(--muted);font-size:.9rem}</style></head><body><main><a class="back" href="../">Zurück zur Übersicht</a><section class="panel"><div class="eyebrow">Dokumentation</div><h1>Dokumentation der Erstellung dieser Seite</h1><p>Diese Seite dokumentiert, wie der SAP Coding Lernpfad auf claudiu.info aufgebaut wurde. Sie dient als technische und inhaltliche Nachvollziehbarkeit der Umsetzung.</p></section><section class="panel"><h2>Ziel der Seite</h2><p>claudiu.info wurde als statischer SAP-Lernpfad umgesetzt. Die Startseite bündelt Themenkarten, offizielle Kursressourcen, Verwendungshinweise und einen lokalen Notizenbereich. Einzelne Unterseiten vertiefen die jeweiligen Themen.</p></section><section class="panel"><h2>Technische Umsetzung</h2><ul><li>Hosting über GitHub Pages.</li><li>Statische HTML-Seiten ohne Framework-Abhängigkeit.</li><li>Responsives Layout mit CSS Grid und systemnahen Schriftarten.</li><li>Lokale Notizen über <code>localStorage</code>.</li><li>TXT-Export der Notizen über <code>Blob</code> und Download-Link.</li><li>Navigation über relative Links, damit die Seite unter <code>/claudiu.info/</code> funktioniert.</li></ul></section><section class="panel"><h2>Erstellte Bereiche</h2><ul><li>Übersicht der Themen auf der Startseite.</li><li>ABAP Code lernen.</li><li>BTP ABAP Trial einrichten.</li><li>SAPUI5 Anwendungen entwickeln.</li><li>CDS-Views und Datenmodellierung.</li><li>Workflow und Formulare.</li><li>Schnittstellen und Erweiterungen.</li><li>Impressum.</li><li>Dokumentation der Seitenerstellung.</li></ul></section><section class="panel"><h2>Umsetzungsschritte</h2><div class="timeline"><div class="step"><strong>1. Bereinigung der GitHub-Pages-Struktur</strong><p>Die Seite wurde von einem alten Template bereinigt und auf eine schlanke statische Struktur reduziert.</p></div><div class="step"><strong>2. Startseite aufgebaut</strong><p>Die Startseite wurde als Themenübersicht mit Karten, Introtext, Kursressourcen und Verwendungshinweisen umgesetzt.</p></div><div class="step"><strong>3. Unterseiten ergänzt</strong><p>Für die relevanten Lernbereiche wurden eigene Unterseiten mit Zielen, Ressourcen und Notizenbereich erstellt.</p></div><div class="step"><strong>4. Notizenfunktion erweitert</strong><p>Der Notizenbereich speichert lokal im Browser und ermöglicht zusätzlich den Download als TXT-Datei.</p></div><div class="step"><strong>5. Impressum und Navigation ergänzt</strong><p>Das Impressum wurde gestalterisch an das Design angepasst. Auf den Unterseiten wurde ein Link zurück zur Übersicht ergänzt.</p></div></div></section><section class="panel"><h2>Wartungshinweise</h2><ul><li>Neue Themen können als neue Ordner mit eigener <code>index.html</code> ergänzt werden.</li><li>Links auf der Startseite sollten relativ gesetzt werden, z. B. <code>./sapui5/</code>.</li><li>Bei Änderungen an GitHub Pages kann es einige Minuten dauern, bis die veröffentlichte Seite aktualisiert ist.</li><li>Falls der Browser alte Inhalte zeigt, sollte mit <code>Strg + F5</code> neu geladen werden.</li></ul></section><div class="footer"><a href="../">Zurück zur Übersicht</a> · <a href="../impressum/">Impressum</a></div></main></body></html>
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dokumentation der Seitenerstellung</title>
+  <style>
+    :root{--text:#eef6ff;--muted:#a9bad0;--accent:#64f0c8;--accent2:#91a7ff;--warn:#ffd38a}*{box-sizing:border-box}body{margin:0;font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(circle at 20% 10%,#1d4658,transparent 30%),linear-gradient(135deg,#0b1220,#16284a 60%,#10251f);color:var(--text);min-height:100vh}main{max-width:980px;margin:0 auto;padding:64px 24px}.back{display:inline-flex;margin-bottom:24px;color:var(--accent)}.panel{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);backdrop-filter:blur(14px);border-radius:28px;padding:36px;margin-bottom:24px;box-shadow:0 24px 70px rgba(0,0,0,.35)}.eyebrow{text-transform:uppercase;letter-spacing:.25em;color:var(--accent);font-size:.82rem;font-weight:700}h1{font-size:clamp(2.2rem,5vw,4.5rem);line-height:1.05;margin:.4em 0 .3em}h2{margin-top:0}p,li{color:var(--muted)}a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}code{background:rgba(8,16,29,.72);border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:2px 6px;color:var(--text)}pre{white-space:pre-wrap;overflow:auto;background:rgba(8,16,29,.72);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:18px;color:var(--text)}.timeline{display:grid;gap:14px}.step{border-left:3px solid var(--accent);padding-left:18px}.notice{border-left:4px solid var(--warn);padding:16px 18px;background:rgba(255,211,138,.08);border-radius:16px}.footer{margin-top:32px;color:var(--muted);font-size:.9rem}
+  </style>
+</head>
+<body>
+<main>
+  <a class="back" href="../">Zurück zur Übersicht</a>
+
+  <section class="panel">
+    <div class="eyebrow">Dokumentation</div>
+    <h1>Dokumentation der Erstellung dieser Seite</h1>
+    <p>Diese Seite dokumentiert, wie der SAP Coding Lernpfad auf claudiu.info aufgebaut und veröffentlicht wurde. Sie dient als technische und inhaltliche Nachvollziehbarkeit der Umsetzung.</p>
+  </section>
+
+  <section class="panel">
+    <h2>Status</h2>
+    <p>Die Seite ist vollständig online. Die Domain <code>claudiu.info</code> ist nun korrekt mit diesem Repository verbunden.</p>
+    <div class="notice"><strong>Wichtige Ursache beim Domain-Problem:</strong><br>Die Domain war zuvor noch bei einem anderen Repository im selben GitHub-Account hinterlegt. Deshalb konnte GitHub Pages die Domain zunächst nicht für dieses Repository übernehmen.</div>
+  </section>
+
+  <section class="panel">
+    <h2>Ziel der Seite</h2>
+    <p><code>claudiu.info</code> wurde als statischer SAP-Lernpfad umgesetzt. Die Startseite bündelt Themenkarten, offizielle Kursressourcen, Verwendungshinweise und einen lokalen Notizenbereich. Einzelne Unterseiten vertiefen die jeweiligen Themen.</p>
+  </section>
+
+  <section class="panel">
+    <h2>Technische Umsetzung</h2>
+    <ul>
+      <li>Hosting über GitHub Pages.</li>
+      <li>Eigene Domain: <code>claudiu.info</code>.</li>
+      <li>Statische HTML-Seiten ohne Framework-Abhängigkeit.</li>
+      <li>Responsives Layout mit CSS Grid und systemnahen Schriftarten.</li>
+      <li>Lokale Notizen über <code>localStorage</code>.</li>
+      <li>TXT-Export der Notizen über <code>Blob</code> und Download-Link.</li>
+      <li>Navigation über relative Links, damit die Seite unabhängig vom Repository-Pfad funktioniert.</li>
+    </ul>
+  </section>
+
+  <section class="panel">
+    <h2>Erstellte Bereiche</h2>
+    <ul>
+      <li>Übersicht der Themen auf der Startseite.</li>
+      <li>ABAP Code lernen.</li>
+      <li>BTP ABAP Trial einrichten.</li>
+      <li>SAPUI5 Anwendungen entwickeln.</li>
+      <li>CDS-Views und Datenmodellierung.</li>
+      <li>Workflow und Formulare.</li>
+      <li>Schnittstellen und Erweiterungen.</li>
+      <li>Impressum.</li>
+      <li>Dokumentation der Seitenerstellung.</li>
+    </ul>
+  </section>
+
+  <section class="panel">
+    <h2>Umsetzungsschritte</h2>
+    <div class="timeline">
+      <div class="step"><strong>1. Bereinigung der GitHub-Pages-Struktur</strong><p>Die Seite wurde von einem alten Template bereinigt und auf eine schlanke statische Struktur reduziert.</p></div>
+      <div class="step"><strong>2. Startseite aufgebaut</strong><p>Die Startseite wurde als Themenübersicht mit Karten, Introtext, Kursressourcen und Verwendungshinweisen umgesetzt.</p></div>
+      <div class="step"><strong>3. Unterseiten ergänzt</strong><p>Für die relevanten Lernbereiche wurden eigene Unterseiten mit Zielen, Ressourcen und Notizenbereich erstellt.</p></div>
+      <div class="step"><strong>4. Notizenfunktion erweitert</strong><p>Der Notizenbereich speichert lokal im Browser und ermöglicht zusätzlich den Download als TXT-Datei.</p></div>
+      <div class="step"><strong>5. Impressum und Navigation ergänzt</strong><p>Das Impressum wurde gestalterisch an das Design angepasst. Auf den Unterseiten wurde ein Link zurück zur Übersicht ergänzt.</p></div>
+      <div class="step"><strong>6. Custom Domain korrigiert</strong><p>Die Domain <code>claudiu.info</code> war noch einem anderen Repository zugeordnet. Nach Entfernung bzw. Korrektur dieser Zuordnung konnte die Domain im richtigen Repository verwendet werden.</p></div>
+      <div class="step"><strong>7. Veröffentlichung geprüft</strong><p>Nach der GitHub-Pages-Konfiguration wurde geprüft, ob die Seite unter der eigenen Domain vollständig erreichbar ist.</p></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Fehlermeldung und Bedeutung</h2>
+    <p>Während der Einrichtung der Custom Domain erschien folgende GitHub-Pages-Fehlermeldung:</p>
+    <pre>The custom domain `claudiu.info` is already taken by another repository in your account. Check out https://docs.github.com/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site for information about how to remove this domain from the other repository.</pre>
+    <p>Die Meldung bedeutet: GitHub erlaubt eine Custom Domain nur an einer eindeutigen Stelle. Wenn dieselbe Domain bereits in einem anderen Repository eingetragen ist, muss sie dort zuerst entfernt werden, bevor sie im gewünschten Repository hinterlegt werden kann.</p>
+  </section>
+
+  <section class="panel">
+    <h2>Wichtigste Learnings</h2>
+    <ul>
+      <li>Bei GitHub Pages ist nicht nur DNS entscheidend, sondern auch die Zuordnung der Domain im Repository.</li>
+      <li>Eine Domain kann im selben GitHub-Account nicht gleichzeitig mehreren Repositories als Custom Domain zugeordnet sein.</li>
+      <li>Fehlermeldungen von GitHub Pages sollten dokumentiert werden, weil sie später beim Debugging sehr hilfreich sind.</li>
+      <li>Relative Links sind robuster als absolute Repository-Pfade, wenn später eine eigene Domain verwendet wird.</li>
+      <li>Nach Änderungen an Pages, DNS oder Custom Domains kann es einige Minuten dauern, bis GitHub und der Browser den aktuellen Stand anzeigen.</li>
+      <li>Bei unerwartetem Verhalten zuerst prüfen: Repository-Zuordnung, Pages-Branch, Custom-Domain-Feld, CNAME-Datei, DNS-Einträge und Browser-Cache.</li>
+    </ul>
+  </section>
+
+  <section class="panel">
+    <h2>Wartungshinweise</h2>
+    <ul>
+      <li>Neue Themen können als neue Ordner mit eigener <code>index.html</code> ergänzt werden.</li>
+      <li>Links auf der Startseite sollten relativ gesetzt werden, z. B. <code>./sapui5/</code>.</li>
+      <li>Bei Änderungen an GitHub Pages kann es einige Minuten dauern, bis die veröffentlichte Seite aktualisiert ist.</li>
+      <li>Falls der Browser alte Inhalte zeigt, sollte mit <code>Strg + F5</code> neu geladen werden.</li>
+      <li>Bei Domain-Problemen zuerst prüfen, ob die Domain noch in einem anderen Repository eingetragen ist.</li>
+    </ul>
+  </section>
+
+  <div class="footer"><a href="../">Zurück zur Übersicht</a> · <a href="../impressum/">Impressum</a></div>
+</main>
+</body>
+</html>
