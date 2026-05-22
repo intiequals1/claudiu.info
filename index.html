@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>claudiu.info – SAP Learning Path</title>
+  <style>
+    :root{--bg:#101827;--card:#17253a;--text:#eef6ff;--muted:#a9bad0;--accent:#64f0c8;--accent2:#91a7ff}
+    *{box-sizing:border-box} body{margin:0;font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(circle at 20% 10%,#1d4658,transparent 30%),linear-gradient(135deg,#0b1220,#16284a 60%,#10251f);color:var(--text);min-height:100vh}
+    main{max-width:1050px;margin:0 auto;padding:64px 24px}
+    .hero{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);backdrop-filter:blur(14px);border-radius:28px;padding:42px;box-shadow:0 24px 70px rgba(0,0,0,.35)}
+    .eyebrow{text-transform:uppercase;letter-spacing:.28em;color:var(--accent);font-size:.82rem;font-weight:700}
+    h1{font-size:clamp(2.4rem,6vw,5rem);line-height:1.03;margin:.4em 0 .3em} p{color:var(--muted);max-width:780px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:32px}
+    a.card{display:block;text-decoration:none;color:var(--text);border:1px solid rgba(255,255,255,.16);border-radius:22px;padding:24px;background:rgba(8,16,29,.55);transition:.2s}
+    a.card:hover{transform:translateY(-3px);border-color:var(--accent);background:rgba(21,60,64,.55)}
+    .tag{color:var(--accent2);font-size:.86rem;text-transform:uppercase;letter-spacing:.18em;font-weight:700}
+    .footer{margin-top:36px;color:var(--muted);font-size:.9rem}
+  </style>
+</head>
+<body>
+<main>
+  <section class="hero">
+    <div class="eyebrow">SAP Learning Path</div>
+    <h1>Übersicht der Themen</h1>
+    <p>Im folgenden Menü findest du Links zu Kursinformationen, Dokumentationen und Lernpfaden.</p>
+    <div class="grid">
+      <a class="card" href="./btp-abap-trial/">
+        <div class="tag">ABAP Cloud</div>
+        <h2>BTP ABAP Trial einrichten</h2>
+        <p>Dokumentierter Lernpfad von SAP BTP Trial über Destination und Eclipse ADT bis zur ersten ABAP-Klasse.</p>
+      </a>
+      <a class="card" href="#">
+        <div class="tag">ABAP</div>
+        <h2>ABAP Code lernen</h2>
+        <p>Platzhalter für weitere ABAP-Grundlagen, Beispiele und Übungsnotizen.</p>
+      </a>
+    </div>
+  </section>
+  <div class="footer">claudiu.info · clean static GitHub Pages branch</div>
+</main>
+</body>
+</html>
