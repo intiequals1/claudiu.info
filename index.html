@@ -85,7 +85,7 @@
     <ol class="usage">
       <li>Öffne das Menü und klicke auf ein Thema deiner Wahl.</li>
       <li>Besuche den verlinkten Kurs, um die Inhalte zu erlernen.</li>
-      <li>Schreibe deine Notizen direkt auf der HTML-Seite und speichere sie lokal im Browser.</li>
+      <li>Schreibe deine Notizen direkt auf der HTML-Seite und speichere sie lokal im Browser oder lade sie als TXT-Datei herunter.</li>
     </ol>
   </section>
 
@@ -94,8 +94,9 @@
     <p>Speichere deine persönlichen Gedanken und Beobachtungen.</p>
     <textarea id="personal-notes" placeholder="Schreibe hier deine Notizen..."></textarea>
     <div class="actions">
-      <button type="button" onclick="saveNotes()">Notizen lokal speichern</button>
-      <button type="button" onclick="copyNotes()">Notizen kopieren</button>
+      <button type="button" id="save-notes">Notizen lokal speichern</button>
+      <button type="button" id="download-notes">Notizen als TXT herunterladen</button>
+      <button type="button" id="copy-notes">Notizen kopieren</button>
     </div>
     <p id="notes-status"></p>
   </section>
@@ -103,12 +104,60 @@
   <div class="footer"><span>claudiu.info · SAP Coding - Lernpfad - Claudiu Dangulea</span><span>·</span><a href="./impressum/">Impressum</a></div>
 </main>
 <script>
-  const notesKey = "claudiu-info-notes-" + window.location.pathname;
-  const textarea = document.getElementById("personal-notes");
-  const statusText = document.getElementById("notes-status");
-  textarea.value = localStorage.getItem(notesKey) || "";
-  function saveNotes(){localStorage.setItem(notesKey, textarea.value);statusText.textContent="Notizen wurden lokal im Browser gespeichert.";}
-  function copyNotes(){textarea.select();document.execCommand("copy");statusText.textContent="Notizen wurden in die Zwischenablage kopiert.";}
+  (function(){
+    const notesKey = "claudiu-info-notes-" + window.location.pathname;
+    const textarea = document.getElementById("personal-notes");
+    const statusText = document.getElementById("notes-status");
+    const saveButton = document.getElementById("save-notes");
+    const downloadButton = document.getElementById("download-notes");
+    const copyButton = document.getElementById("copy-notes");
+
+    textarea.value = localStorage.getItem(notesKey) || "";
+
+    function setStatus(message){
+      statusText.textContent = message;
+    }
+
+    function saveNotes(){
+      try{
+        localStorage.setItem(notesKey, textarea.value);
+        setStatus("Notizen wurden lokal im Browser gespeichert.");
+      }catch(error){
+        setStatus("Lokales Speichern war nicht möglich. Bitte lade die Notizen als TXT-Datei herunter.");
+      }
+    }
+
+    function downloadNotes(){
+      const date = new Date().toISOString().slice(0,10);
+      const content = textarea.value || "";
+      const blob = new Blob([content], {type:"text/plain;charset=utf-8"});
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "claudiu-info-notizen-" + date + ".txt";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+      setStatus("TXT-Datei wurde zum Download vorbereitet.");
+    }
+
+    async function copyNotes(){
+      try{
+        await navigator.clipboard.writeText(textarea.value);
+        setStatus("Notizen wurden in die Zwischenablage kopiert.");
+      }catch(error){
+        textarea.focus();
+        textarea.select();
+        document.execCommand("copy");
+        setStatus("Notizen wurden in die Zwischenablage kopiert.");
+      }
+    }
+
+    saveButton.addEventListener("click", saveNotes);
+    downloadButton.addEventListener("click", downloadNotes);
+    copyButton.addEventListener("click", copyNotes);
+  })();
 </script>
 </body>
 </html>
