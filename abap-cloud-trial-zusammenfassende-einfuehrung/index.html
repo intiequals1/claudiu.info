@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ABAP Cloud Trial – zusammenfassende Einführung</title>
+<style>
+:root{--text:#eef6ff;--muted:#a9bad0;--accent:#64f0c8;--accent2:#91a7ff;--card:rgba(255,255,255,.08);--deep:rgba(8,16,29,.72);--warn:#ffd166;--ok:#64f0c8}
+*{box-sizing:border-box}body{margin:0;font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(circle at 20% 10%,#1d4658,transparent 30%),linear-gradient(135deg,#0b1220,#16284a 60%,#10251f);color:var(--text);min-height:100vh}main{max-width:1120px;margin:0 auto;padding:64px 24px}a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}.back{display:inline-flex;margin-bottom:24px;color:var(--accent)}.hero,.panel{border:1px solid rgba(255,255,255,.18);background:var(--card);backdrop-filter:blur(14px);border-radius:28px;padding:38px;margin-bottom:24px;box-shadow:0 24px 70px rgba(0,0,0,.35)}.eyebrow{text-transform:uppercase;letter-spacing:.25em;color:var(--accent);font-size:.82rem;font-weight:700}h1{font-size:clamp(2.4rem,6vw,4.8rem);line-height:1.03;margin:.35em 0 .25em}h2{margin-top:0}h3{margin-bottom:.35rem}p,li{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}.box{border:1px solid rgba(255,255,255,.14);background:var(--deep);border-radius:20px;padding:20px}.tag{color:var(--accent2);font-size:.82rem;text-transform:uppercase;letter-spacing:.18em;font-weight:700}.status{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}.pill{border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:7px 12px;background:rgba(255,255,255,.06);color:var(--muted)}.ok{color:var(--ok)}.warn{color:var(--warn)}.steps{counter-reset:step;display:grid;gap:16px}.step{counter-increment:step;border-left:3px solid var(--accent);padding:6px 0 6px 18px;background:linear-gradient(90deg,rgba(100,240,200,.07),transparent);border-radius:12px}.step h3:before{content:counter(step) '. ';color:var(--accent)}.note{border-left:4px solid var(--warn);padding:12px 16px;background:rgba(255,209,102,.08);border-radius:14px}.footer{margin-top:32px;color:var(--muted);font-size:.9rem;display:flex;gap:14px;flex-wrap:wrap}.small{font-size:.92rem;color:var(--muted)}
+</style>
+</head>
+<body>
+<main>
+<a class="back" href="../">Zurück zur Übersicht</a>
+<section class="hero">
+<div class="eyebrow">ABAP Cloud Trial · Einführung</div>
+<h1>ABAP Cloud Trial – zusammenfassende Einführung</h1>
+<p>Diese Seite ergänzt die technische Fehler- und Screenshot-Dokumentation um den Einstieg vor dem ersten konkreten Fehlerereignis. Sie erklärt, warum die Trial-Umgebung genutzt wird, welche Bausteine beteiligt sind und wie der Lernpfad grundsätzlich zu lesen ist.</p>
+<div class="status"><span class="pill ok">Status: Ergänzungsseite angelegt</span><span class="pill">Quelle: pertion.io-Konzeptseite</span><span class="pill">Fokus: Einstieg vor Troubleshooting</span></div>
+</section>
+<section class="panel">
+<h2>Wozu dient diese Einführung?</h2>
+<p>Die bestehende Seite zur BTP ABAP Trial dokumentiert vor allem konkrete Arbeitsschritte, Screenshots, Fehlerbilder und Entscheidungen. Diese Einführung setzt davor an: Sie beschreibt den fachlichen Rahmen, damit nachvollziehbar ist, warum SAP BTP Trial, ABAP Cloud, Business Application Studio, Destinationen und Eclipse ADT überhaupt zusammen betrachtet werden.</p>
+<div class="note"><p><strong>Einordnung:</strong> Diese Seite ist als vorgeschaltete Orientierungsseite gedacht. Die Detailseite <a href="../btp-abap-trial/">BTP ABAP Trial einrichten</a> bleibt die operative Dokumentation mit Screenshots, Fehleranalyse und Status.</p></div>
+</section>
+<section class="panel">
+<h2>Grundidee des ABAP Cloud Trial</h2>
+<div class="grid">
+<div class="box"><div class="tag">Lernumgebung</div><h3>Trial statt Produktivsystem</h3><p>Die Trial-Umgebung erlaubt es, ABAP Cloud und SAP BTP ohne Eingriff in ein produktives SAP-System zu erkunden.</p></div>
+<div class="box"><div class="tag">Cloud-Entwicklung</div><h3>ABAP Cloud als modernes Entwicklungsmodell</h3><p>ABAP Cloud fokussiert auf freigegebene APIs, klare Paketstrukturen und cloudfähige Erweiterungen.</p></div>
+<div class="box"><div class="tag">Werkzeuge</div><h3>BAS und Eclipse ADT vergleichen</h3><p>Business Application Studio und Eclipse ADT können unterschiedliche Rollen spielen. In dieser Dokumentation wurde Eclipse ADT als stabilerer Weg festgehalten.</p></div>
+</div>
+</section>
+<section class="panel">
+<h2>Beteiligte Bausteine</h2>
+<div class="steps">
+<div class="step"><h3>SAP BTP Cockpit</h3><p>Zentrale Verwaltungsoberfläche für Subaccount, Services, Instances, Subscriptions und Destinations.</p></div>
+<div class="step"><h3>ABAP Trial Service Instance</h3><p>Technische Grundlage für die ABAP Cloud Umgebung innerhalb des Trial-Subaccounts.</p></div>
+<div class="step"><h3>Destination</h3><p>Verbindungsdefinition, über die Entwicklungswerkzeuge auf die ABAP Trial Umgebung zugreifen sollen.</p></div>
+<div class="step"><h3>Business Application Studio</h3><p>Browserbasierte Entwicklungsumgebung, die im Versuch geprüft wurde, aber nicht zuverlässig das passende ABAP-System angeboten hat.</p></div>
+<div class="step"><h3>Eclipse ADT</h3><p>Lokale Entwicklungsumgebung mit ABAP Development Tools. Sie wurde für die erfolgreiche Verbindung und das Minimalbeispiel verwendet.</p></div>
+<div class="step"><h3>Paketstruktur und Software Component</h3><p>ABAP Cloud erzwingt eine saubere Struktur. Nicht jedes Paket kann Entwicklungsobjekte enthalten; Structure Packages dienen der Ordnung.</p></div>
+</div>
+</section>
+<section class="panel">
+<h2>Empfohlene Lesereihenfolge</h2>
+<ol>
+<li>Diese Einführung lesen, um Ziel, Begriffe und Systemzusammenhang zu verstehen.</li>
+<li>Danach die Detailseite <a href="../btp-abap-trial/">BTP ABAP Trial einrichten</a> öffnen.</li>
+<li>Dort die chronologische Screenshot-Dokumentation nachvollziehen.</li>
+<li>Am Ende das Minimalbeispiel und die Learnings prüfen.</li>
+</ol>
+</section>
+<section class="panel">
+<h2>Abgrenzung zur Detaildokumentation</h2>
+<p>Diese Seite enthält bewusst keine vollständige Fehleranalyse und keine vollständige Screenshot-Galerie. Sie schließt die Lücke, dass die bisherige Dokumentation erst ab einem konkreten Fehlerereignis einsetzt. Die eigentliche technische Umsetzung bleibt auf der Detailseite dokumentiert.</p>
+</section>
+<section class="panel">
+<h2>Status</h2>
+<p><strong>Status:</strong> Ergänzungsseite angelegt und als vorgeschaltete Einführung konzipiert.</p>
+<p class="small">Nächster sinnvoller Schritt: Diese Seite auf der Übersicht verlinken und danach die Galerie der Detailseite so umbauen, dass alle Screenshots anklickbar und vollständig erreichbar sind.</p>
+</section>
+<div class="footer"><a href="../">Zurück zur Übersicht</a> · <a href="../btp-abap-trial/">BTP ABAP Trial einrichten</a> · <a href="../abap-code-lernen/">ABAP Code lernen</a> · <a href="../dokumentation/">Dokumentation der Seitenerstellung</a></div>
+</main>
+</body>
+</html>
