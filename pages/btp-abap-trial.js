@@ -1,1 +1,1 @@
-PLACEHOLDER
+/mnt/data/pages_btp_abap_trial.js
