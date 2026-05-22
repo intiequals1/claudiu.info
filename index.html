@@ -25,6 +25,7 @@
     .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}button{border:1px solid rgba(255,255,255,.18);background:rgba(100,240,200,.14);color:var(--text);border-radius:12px;padding:10px 14px;cursor:pointer}button:hover{border-color:var(--accent)}
     #notes-status{font-size:.92rem;color:var(--accent);margin-top:12px}
     .footer{margin-top:36px;color:var(--muted);font-size:.9rem;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+    .footer .doc-link{margin-left:auto}
   </style>
 </head>
 <body>
@@ -73,7 +74,7 @@
     <p id="notes-status"></p>
   </section>
 
-  <div class="footer"><span>claudiu.info · SAP Coding - Lernpfad - Claudiu Dangulea</span><span>·</span><a href="./impressum/">Impressum</a></div>
+  <div class="footer"><span>claudiu.info · SAP Coding - Lernpfad - Claudiu Dangulea</span><span>·</span><a href="./impressum/">Impressum</a><a class="doc-link" href="./dokumentation/">Dokumentation der Seitenerstellung</a></div>
 </main>
 <script>
 (function(){const notesKey="claudiu-info-notes-"+window.location.pathname;const textarea=document.getElementById("personal-notes");const statusText=document.getElementById("notes-status");textarea.value=localStorage.getItem(notesKey)||"";function setStatus(message){statusText.textContent=message}function saveNotes(){try{localStorage.setItem(notesKey,textarea.value);setStatus("Notizen wurden lokal im Browser gespeichert.")}catch(error){setStatus("Lokales Speichern war nicht möglich. Bitte lade die Notizen als TXT-Datei herunter.")}}function downloadNotes(){const date=new Date().toISOString().slice(0,10);const blob=new Blob([textarea.value||""],{type:"text/plain;charset=utf-8"});const url=URL.createObjectURL(blob);const link=document.createElement("a");link.href=url;link.download="claudiu-info-notizen-"+date+".txt";document.body.appendChild(link);link.click();document.body.removeChild(link);URL.revokeObjectURL(url);setStatus("TXT-Datei wurde zum Download vorbereitet.")}async function copyNotes(){try{await navigator.clipboard.writeText(textarea.value);setStatus("Notizen wurden in die Zwischenablage kopiert.")}catch(error){textarea.focus();textarea.select();document.execCommand("copy");setStatus("Notizen wurden in die Zwischenablage kopiert.")}}document.getElementById("save-notes").addEventListener("click",saveNotes);document.getElementById("download-notes").addEventListener("click",downloadNotes);document.getElementById("copy-notes").addEventListener("click",copyNotes)})();
