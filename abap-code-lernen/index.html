@@ -3,43 +3,119 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ABAP Code lernen</title>
+<title>ABAP Code lernen – claudiu.info</title>
 <style>
-body{margin:0;font:16px/1.6 system-ui,Arial,sans-serif;background:#101827;color:#eef6ff}main{max-width:900px;margin:0 auto;padding:48px 24px}.card{border:1px solid rgba(255,255,255,.18);background:#17253a;border-radius:24px;padding:32px;margin:20px 0}a{color:#64f0c8}p,li{color:#a9bad0}h1{font-size:3rem;line-height:1.1}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}.box{background:#101827;border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:16px}pre{background:#0b1220;padding:16px;border-radius:12px;overflow:auto}
+:root{--text:#eef6ff;--muted:#a9bad0;--accent:#64f0c8;--accent2:#91a7ff;--card:rgba(255,255,255,.08);--deep:rgba(8,16,29,.72)}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(circle at 20% 10%,#1d4658,transparent 30%),linear-gradient(135deg,#0b1220,#16284a 60%,#10251f);color:var(--text);min-height:100vh}
+main{max-width:1050px;margin:0 auto;padding:64px 24px}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}.back{display:inline-flex;margin-bottom:24px;color:var(--accent)}
+.hero,.panel{border:1px solid rgba(255,255,255,.18);background:var(--card);backdrop-filter:blur(14px);border-radius:28px;padding:38px;margin-bottom:24px;box-shadow:0 24px 70px rgba(0,0,0,.35)}
+.eyebrow{text-transform:uppercase;letter-spacing:.25em;color:var(--accent);font-size:.82rem;font-weight:700}h1{font-size:clamp(2.4rem,6vw,4.8rem);line-height:1.03;margin:.35em 0 .25em}h2{margin-top:0}p,li{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}.box{border:1px solid rgba(255,255,255,.14);background:var(--deep);border-radius:20px;padding:20px}.tag{color:var(--accent2);font-size:.82rem;text-transform:uppercase;letter-spacing:.18em;font-weight:700}
+pre{background:#0b1220;border:1px solid rgba(255,255,255,.14);padding:18px;border-radius:16px;overflow:auto;color:#eef6ff}code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+.explain{display:grid;gap:12px}.explain div{border-left:3px solid var(--accent);padding-left:16px}.resources{padding-left:20px}.resources li{margin-bottom:10px}
+textarea{width:100%;min-height:170px;border-radius:18px;border:1px solid rgba(255,255,255,.22);background:var(--deep);color:var(--text);padding:18px;font:15px/1.6 ui-monospace,Consolas,monospace;resize:vertical}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}button{border:1px solid rgba(255,255,255,.18);background:rgba(100,240,200,.14);color:var(--text);border-radius:12px;padding:10px 14px;cursor:pointer}button:hover{border-color:var(--accent)}#notes-status{font-size:.92rem;color:var(--accent);margin-top:12px}.footer{margin-top:32px;color:var(--muted);font-size:.9rem;display:flex;gap:14px;flex-wrap:wrap}
 </style>
 </head>
 <body>
 <main>
-<a href="../">Zurueck zur Uebersicht</a>
-<section class="card">
+<a class="back" href="../">Zurück zur Übersicht</a>
+<section class="hero">
+<div class="eyebrow">ABAP</div>
 <h1>ABAP Code lernen</h1>
-<p>Grundlagen, Syntaxmuster und kleine Uebungen fuer den Einstieg in ABAP und ABAP Cloud.</p>
+<p>Diese Seite strukturiert den Einstieg in ABAP und ABAP Cloud. Ziel ist nicht nur Syntax auswendig zu lernen, sondern kleine Programme, Klassen und Datenstrukturen schrittweise zu verstehen.</p>
 </section>
-<section class="card">
+
+<section class="panel">
 <h2>Lernmodule</h2>
 <div class="grid">
-<div class="box"><h3>Grundstruktur</h3><p>Klassen, Methoden und Aktivierung verstehen.</p></div>
-<div class="box"><h3>Variablen und Typen</h3><p>Deklarationen, Datentypen, Strukturen und Tabellen.</p></div>
-<div class="box"><h3>Kontrolllogik</h3><p>IF, CASE, LOOP und einfache Validierungen.</p></div>
-<div class="box"><h3>Objektorientierung</h3><p>Klassen, Interfaces, Instanzen und Methodenaufrufe.</p></div>
+<div class="box"><div class="tag">Modul 1</div><h3>Grundstruktur</h3><p>ABAP-Programme und Klassen lesen: Definition, Implementierung, Sichtbarkeit, Aktivierung und Ausführung in ADT.</p><ul><li>Was ist eine Klasse?</li><li>Was gehört in die Definition?</li><li>Was gehört in die Implementierung?</li></ul></div>
+<div class="box"><div class="tag">Modul 2</div><h3>Variablen und Typen</h3><p>Deklarationen, elementare Datentypen, Strukturen und interne Tabellen als Grundlage für fachliche Datenverarbeitung.</p><ul><li><code>DATA</code>, <code>TYPE</code>, <code>VALUE</code></li><li>Strukturen und Tabellen</li><li>sprechende Namen verwenden</li></ul></div>
+<div class="box"><div class="tag">Modul 3</div><h3>Kontrolllogik</h3><p>Entscheidungen und Wiederholungen modellieren: IF, CASE, LOOP und einfache Validierungen.</p><ul><li>Bedingungen prüfen</li><li>Tabellen durchlaufen</li><li>Ergebnisse ausgeben</li></ul></div>
+<div class="box"><div class="tag">Modul 4</div><h3>Objektorientierung</h3><p>ABAP OO verstehen: Klassen, Methoden, Interfaces, Instanzen und Kapselung.</p><ul><li>Methoden definieren</li><li>Interfaces nutzen</li><li>Verantwortlichkeiten trennen</li></ul></div>
 </div>
 </section>
-<section class="card">
+
+<section class="panel">
+<h2>Ressourcen zu den Lernmodulen</h2>
+<ul class="resources">
+<li><strong>Grundstruktur & Syntax:</strong> <a href="https://learning.sap.com/learning-journeys/acquiring-core-abap-skills">Acquiring Core ABAP Skills</a></li>
+<li><strong>ABAP Cloud Einstieg:</strong> <a href="../btp-abap-trial/">Eigene Dokumentation: BTP ABAP Trial einrichten</a></li>
+<li><strong>SAPUI5 als nächster Schritt:</strong> <a href="../sapui5/">SAPUI5 Anwendungen entwickeln</a></li>
+<li><strong>Datenmodellierung:</strong> <a href="../cds-views/">CDS-Views & Datenmodellierung</a></li>
+<li><strong>Prozesssicht:</strong> <a href="../workflow-formulare/">Workflow & Formulare</a></li>
+</ul>
+</section>
+
+<section class="panel">
 <h2>Minimalbeispiel</h2>
-<pre>CLASS zcl_claudiu_hello DEFINITION.
+<pre><code>CLASS zcl_claudiu_hello DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC.
+
+  PUBLIC SECTION.
+    INTERFACES if_oo_adt_classrun.
 ENDCLASS.
 
 CLASS zcl_claudiu_hello IMPLEMENTATION.
-ENDCLASS.</pre>
+  METHOD if_oo_adt_classrun~main.
+    out->write( 'Hello Claudiu - ABAP Cloud works.' ).
+  ENDMETHOD.
+ENDCLASS.</code></pre>
 </section>
-<section class="card">
-<h2>Naechste Schritte</h2>
-<ul>
-<li>Beispiele aus Eclipse ADT dokumentieren.</li>
-<li>Syntaxnotizen ergaenzen.</li>
-<li>Uebungen zu internen Tabellen und Klassen anlegen.</li>
-</ul>
+
+<section class="panel">
+<h2>Kurze Erklärung des Minimalbeispiels</h2>
+<div class="explain">
+<div><strong><code>CLASS ... DEFINITION</code></strong><p>Hier wird die Klasse beschrieben. In diesem Abschnitt steht, welche Eigenschaften, Methoden oder Interfaces die Klasse nach außen anbietet.</p></div>
+<div><strong><code>PUBLIC FINAL CREATE PUBLIC</code></strong><p><code>PUBLIC</code> macht die Klasse sichtbar. <code>FINAL</code> bedeutet, dass die Klasse nicht vererbt werden soll. <code>CREATE PUBLIC</code> erlaubt die öffentliche Erzeugung von Objekten.</p></div>
+<div><strong><code>PUBLIC SECTION</code></strong><p>Alles in diesem Abschnitt ist öffentlich erreichbar. Für ein erstes Lernbeispiel wird hier das Interface für die Ausführung angegeben.</p></div>
+<div><strong><code>INTERFACES if_oo_adt_classrun</code></strong><p>Dieses Interface macht die Klasse in Eclipse ADT direkt ausführbar. Die Methode <code>main</code> wird beim Start der Klasse aufgerufen.</p></div>
+<div><strong><code>CLASS ... IMPLEMENTATION</code></strong><p>In der Implementierung steht der ausführbare Code. Die Definition sagt, was vorhanden ist; die Implementierung sagt, was passiert.</p></div>
+<div><strong><code>out-&gt;write( ... )</code></strong><p>Diese Anweisung schreibt Text in die ABAP Console. Damit lässt sich schnell prüfen, ob die Klasse erfolgreich ausgeführt wird.</p></div>
+</div>
 </section>
+
+<section class="panel">
+<h2>Weitere Übungsbeispiele</h2>
+<div class="grid">
+<div class="box"><h3>Variablen ausgeben</h3><pre><code>DATA name TYPE string VALUE 'Claudiu'.
+out-&gt;write( name ).</code></pre><p>Dieses Beispiel zeigt, wie eine Variable deklariert, mit einem Wert befüllt und ausgegeben wird.</p></div>
+<div class="box"><h3>Einfache Bedingung</h3><pre><code>DATA score TYPE i VALUE 75.
+IF score &gt;= 50.
+  out-&gt;write( 'Bestanden' ).
+ELSE.
+  out-&gt;write( 'Nicht bestanden' ).
+ENDIF.</code></pre><p>Hier wird eine Entscheidung modelliert. ABAP prüft die Bedingung und führt abhängig davon einen Zweig aus.</p></div>
+<div class="box"><h3>Interne Tabelle durchlaufen</h3><pre><code>DATA names TYPE STANDARD TABLE OF string.
+APPEND 'ABAP' TO names.
+APPEND 'SAPUI5' TO names.
+
+LOOP AT names INTO DATA(topic).
+  out-&gt;write( topic ).
+ENDLOOP.</code></pre><p>Dieses Beispiel zeigt eine einfache interne Tabelle und eine Schleife über die enthaltenen Werte.</p></div>
+</div>
+</section>
+
+<section class="panel">
+<h2>Lernziel</h2>
+<p>Nach diesen Modulen solltest du eine einfache ABAP-Klasse lesen, ausführen und gezielt erweitern können. Der nächste sinnvolle Schritt ist, Datenstrukturen und CDS-Views zu verstehen und danach einfache Benutzeroberflächen oder Integrationen darauf aufzubauen.</p>
+</section>
+
+<section class="panel">
+<h2>Persönliche Notizen</h2>
+<p>Speichere deine persönlichen Gedanken und Beobachtungen.</p>
+<textarea id="personal-notes" placeholder="Schreibe hier deine ABAP-Notizen..."></textarea>
+<div class="actions"><button id="save-notes">Notizen lokal speichern</button><button id="download-notes">Notizen als TXT herunterladen</button><button id="copy-notes">Notizen kopieren</button></div>
+<p id="notes-status"></p>
+</section>
+
+<div class="footer"><a href="../">Zurück zur Übersicht</a> · <a href="../impressum/">Impressum</a> · <a href="../dokumentation/">Dokumentation der Seitenerstellung</a></div>
 </main>
+<script>
+(function(){const k="claudiu-info-notes-"+location.pathname,t=document.getElementById("personal-notes"),s=document.getElementById("notes-status");t.value=localStorage.getItem(k)||"";function m(x){s.textContent=x}document.getElementById("save-notes").onclick=()=>{try{localStorage.setItem(k,t.value);m("Notizen wurden lokal im Browser gespeichert.")}catch(e){m("Lokales Speichern war nicht möglich. Bitte als TXT herunterladen.")}};document.getElementById("download-notes").onclick=()=>{const b=new Blob([t.value||""],{type:"text/plain;charset=utf-8"}),u=URL.createObjectURL(b),a=document.createElement("a");a.href=u;a.download="abap-code-notizen-"+new Date().toISOString().slice(0,10)+".txt";document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(u);m("TXT-Datei wurde zum Download vorbereitet.")};document.getElementById("copy-notes").onclick=async()=>{try{await navigator.clipboard.writeText(t.value);m("Notizen wurden kopiert.")}catch(e){t.focus();t.select();document.execCommand("copy");m("Notizen wurden kopiert.")}}})();
+</script>
 </body>
 </html>
