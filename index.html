@@ -37,6 +37,13 @@
     .footer{margin-top:36px;color:var(--muted);font-size:.9rem;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
     .footer .doc-link{margin-left:auto}
     .kofi-panel{text-align:center}.kofi-panel p{text-align:center;margin-bottom:18px}
+    .site-footer{margin-top:48px;border-top:1px solid rgba(255,255,255,.12);padding-top:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px}
+    .site-footer h3{font-size:.9rem;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);margin:0 0 12px}
+    .site-footer p,.site-footer address{font-style:normal;color:var(--muted);font-size:.88rem;line-height:1.7;margin:0}
+    .site-footer a{color:var(--accent);text-decoration:none}.site-footer a:hover{text-decoration:underline}
+    .site-footer .paypal-btn{display:inline-block;margin-top:10px;padding:9px 20px;border-radius:12px;background:rgba(0,112,240,.22);border:1px solid rgba(0,112,240,.45);color:#7ec8ff;font-size:.9rem;font-weight:600;text-decoration:none;transition:.2s}.site-footer .paypal-btn:hover{background:rgba(0,112,240,.38);border-color:#7ec8ff;text-decoration:none}
+    .footer-bottom{margin-top:24px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08);color:var(--muted);font-size:.82rem;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+    .footer-bottom a{color:var(--accent);text-decoration:none}.footer-bottom a:hover{text-decoration:underline}
   </style>
 </head>
 <body>
@@ -102,7 +109,38 @@
     <script type='text/javascript'>kofiwidget2.init('Support my Skills!', '#72a4f2', 'X2E020V0PY');kofiwidget2.draw();<\/script>
   </section>
 
-  <div class="footer"><span>claudiu.info · SAP Coding - Lernpfad - Claudiu Dangulea</span><span>·</span><a href="./impressum/">Impressum</a><a class="doc-link" href="./dokumentation/">Dokumentation der Seitenerstellung</a></div>
+  <footer>
+    <div class="site-footer">
+      <div>
+        <h3>claudiu.info</h3>
+        <p>SAP Coding Lernpfad von Claudiu Dangulea &mdash; kuratierte Ressourcen zu ABAP, SAPUI5, CDS-Views, Workflow, Integration und SAP Incident Management.</p>
+      </div>
+      <div>
+        <h3>Impressum</h3>
+        <address>
+          <strong style="color:var(--text)">Claudiu Dangulea</strong><br>
+          Karl-Popper-Stra&szlig;e 5/217<br>
+          1100 Wien, &Ouml;sterreich<br><br>
+          <a href="mailto:claudiu.dangulea@gmail.com">claudiu.dangulea@gmail.com</a><br>
+          +43 676 30 13 307<br><br>
+          GISA 35190172 &middot; GISA 38180019<br>
+          Verantwortlich gem. &sect;&nbsp;25 MedienG: Claudiu Dangulea
+        </address>
+      </div>
+      <div>
+        <h3>Support</h3>
+        <p>Wenn dir diese Inhalte helfen, freue ich mich &uuml;ber deine Unterst&uuml;tzung &mdash; jeder Betrag ist willkommen.</p>
+        <a class="paypal-btn" href="https://paypal.me/ClaudiuDangulea" target="_blank" rel="noopener">&#x1F4B3;&nbsp; Please Support my Knowledge sharing</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 claudiu.info &middot; Claudiu Dangulea</span>
+      <span>&middot;</span>
+      <a href="./impressum/">Impressum</a>
+      <a href="./dokumentation/">Dokumentation</a>
+      <a href="https://paypal.me/ClaudiuDangulea" target="_blank" rel="noopener">PayPal Support</a>
+    </div>
+  </footer>
 </main>
 <script>
 (function(){const notesKey="claudiu-info-notes-"+window.location.pathname;const textarea=document.getElementById("personal-notes");const statusText=document.getElementById("notes-status");textarea.value=localStorage.getItem(notesKey)||"";function setStatus(message){statusText.textContent=message}function saveNotes(){try{localStorage.setItem(notesKey,textarea.value);setStatus("Notizen wurden lokal im Browser gespeichert.")}catch(error){setStatus("Lokales Speichern war nicht möglich. Bitte lade die Notizen als TXT-Datei herunter.")}}function downloadNotes(){const date=new Date().toISOString().slice(0,10);const blob=new Blob([textarea.value||""],{type:"text/plain;charset=utf-8"});const url=URL.createObjectURL(blob);const link=document.createElement("a");link.href=url;link.download="claudiu-info-notizen-"+date+".txt";document.body.appendChild(link);link.click();document.body.removeChild(link);URL.revokeObjectURL(url);setStatus("TXT-Datei wurde zum Download vorbereitet.")}async function copyNotes(){try{await navigator.clipboard.writeText(textarea.value);setStatus("Notizen wurden in die Zwischenablage kopiert.")}catch(error){textarea.focus();textarea.select();document.execCommand("copy");setStatus("Notizen wurden in die Zwischenablage kopiert.")}}document.getElementById("save-notes").addEventListener("click",saveNotes);document.getElementById("download-notes").addEventListener("click",downloadNotes);document.getElementById("copy-notes").addEventListener("click",copyNotes)})();
